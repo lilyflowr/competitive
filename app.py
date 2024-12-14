@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit as st
 import pandas as pd
 import plotly.express as px
 from sklearn.preprocessing import MinMaxScaler
@@ -72,6 +73,7 @@ top_10_engagement_score_fig = px.bar(
     labels={"Competition Name": "Competitor"}
 )
 
+st.subheader("Social Media Engagement by Platform")
 engagement_fig = px.bar(
     engagement_data,
     x='Social Media Platform',
