@@ -73,7 +73,6 @@ top_10_engagement_score_fig = px.bar(
     labels={"Competition Name": "Competitor"}
 )
 
-st.subheader("Social Media Engagement by Platform")
 engagement_fig = px.bar(
     engagement_data,
     x='Social Media Platform',
@@ -121,6 +120,6 @@ st.dataframe(top_5)
 
 st.subheader("Insights")
 st.markdown(f"1. Top Competitor In Port Harcourt: {top_5.iloc[0]['Competition Name']}")
-st.markdown("2. Best Engagement Platform: Platform with highest engagement score")
+st.markdown("2. Best Engagement Platform: Instagram")
 st.markdown("3. Key Takeaway: Companies with strong engagement and domain authority are leading the competition.")
 st.markdown("[Full Detailed Report](https://docs.google.com/document/d/1UPqLa-lVkh-2O0RA60a3mXay5jjlWAmgShRPARwe_kc/edit?usp=sharing)")
