@@ -82,10 +82,19 @@ engagement_fig = px.bar(
     title='Social Media Engagement by Platform'
 )
 
+combined_reviews_fig = px.bar(
+    data.nlargest(10, 'Combined Reviews Score'),
+    x = 'Competition Name',
+    y='Combined Reviews Score',
+    color='Combined Reviews Score',
+    title='Top 10 Companies by Reviews',
+    labels={"Competition Name": "Competitor"}
+) 
+
 st.title("Competitor Analysis Dashboard")
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs([
-    "Engagement by Platform", "Domain Authority", "SEO Score", 
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+    "Engagement by Platform", "Domain Authority", "Combined Reviews Score","SEO Score", 
     "Top Final Scores", "Top Engagement Scores"
 ])
 
@@ -99,8 +108,9 @@ with tab2:
         y='Domain_Strength_10',
         title='Top 10 Companies by Domain Authority'
     ))
-
 with tab3:
+    st.plotly_chart(combined_reviews_fig)
+with tab4:
     st.plotly_chart(px.bar(
         data.nlargest(10, 'SEO_Backlink_Score_5'),
         x='Competition Name',
@@ -108,10 +118,10 @@ with tab3:
         title='Top 10 Companies by SEO Score'
     ))
 
-with tab4:
+with tab5:
     st.plotly_chart(top_10_final_score_fig)
 
-with tab5:
+with tab6:
     st.plotly_chart(top_10_engagement_score_fig)
 
 st.subheader("Top 5 Competitors")
